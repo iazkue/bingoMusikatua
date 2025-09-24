@@ -32,6 +32,7 @@ current_volume = VOLUME_MAX
 pygame.mixer.music.set_volume(current_volume)
 
 def play_song(song_number):
+    global current_volume
     filename = f"{song_number:02}.mp3"
     if not os.path.isfile(filename):
         print(f"Archivo '{filename}' EZ DA EXISTITZEN.")
@@ -39,6 +40,7 @@ def play_song(song_number):
     pygame.mixer.music.stop()
     pygame.mixer.music.load(filename)
     pygame.mixer.music.set_volume(VOLUME_MAX)
+    current_volume = VOLUME_MAX
     pygame.mixer.music.play()
     print(f"KANTA ERREPRODUZITZEN: {filename}")
 
